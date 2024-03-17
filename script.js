@@ -2,6 +2,7 @@ import {operate} from "./utils/operate.js";
 
 let firstInput = "";
 let secondInput = "";
+let result = 0;
 let operator = null;
 
 const buttons = document.querySelectorAll("button");
@@ -21,15 +22,21 @@ buttons.forEach(btn => btn.addEventListener("click", function () {
             screen.textContent = secondInput;
         }
     } else if (["+", "-", "*", "/"].includes(inputValue)) {
-        operator = inputValue; // Save operator
-        screen.textContent = inputValue
-    } else if (inputValue === "=" && operator) {
-        const result = operate(firstInput, secondInput, operator);
+        if (firstInput && secondInput) {
+            // if there already two values, calculate
+            result = operate(Number(firstInput), Number(secondInput), operator);
+            screen.textContent = result;
+            firstInput = result.toString();
+            secondInput = "";
+        }
+        operator = inputValue;
+    } else if (inputValue === "=" && secondInput && operator) {
+        result = operate(Number(firstInput), Number(secondInput), operator);
         screen.textContent = result;
-        // Reset for next calculation
+        // Vorbereiten für mögliche weitere Berechnungen mit diesem Ergebnis
         firstInput = result.toString();
         secondInput = "";
-        //operator = null;
+        operator = null;
     } else if (inputValue === "clear") {
         firstInput = "";
         secondInput = "";
