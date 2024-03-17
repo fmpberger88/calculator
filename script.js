@@ -20,7 +20,7 @@ buttons.forEach(btn => btn.addEventListener("click", function () {
             secondInput += inputValue;
             screen.textContent = secondInput;
         }
-    } else if (["+", "-", "*", "-"].includes(inputValue)) {
+    } else if (["+", "-", "*", "/"].includes(inputValue)) {
         operator = inputValue; // Save operator
         screen.textContent = inputValue
     } else if (inputValue === "=" && operator) {
