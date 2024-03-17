@@ -22,7 +22,7 @@ buttons.forEach(btn => btn.addEventListener("click", function () {
         }
     } else if (["+", "-", "*", "-"].includes(inputValue)) {
         operator = inputValue; // Save operator
-        screen.textContent = inputValue // clear for second input
+        screen.textContent = inputValue
     } else if (inputValue === "=" && operator) {
         screen.textContent = operate(firstInput, secondInput, operator);
         // Reset for next calculation
@@ -33,16 +33,24 @@ buttons.forEach(btn => btn.addEventListener("click", function () {
         firstInput = "";
         secondInput = "";
         operator = null;
-        screen.textContent = ""
+        screen.textContent = 0;
     } else if (inputValue === "delete") {
         if (secondInput) {
             secondInput = secondInput.slice(0, -1);
-            screen.textContent = secondInput;
+            if (secondInput.length === 0) {
+                screen.textContent = 0;
+            } else {
+                screen.textContent = secondInput;
+            }
         } else if (!secondInput && operator) {
             operator = null;
         } else {
             firstInput = firstInput.slice(0, -1);
-            screen.textContent = firstInput;
+            if (firstInput.length === 0) {
+                screen.textContent = 0;
+            } else {
+                screen.textContent = firstInput;
+            }
         }
     }
 }));
