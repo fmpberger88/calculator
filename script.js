@@ -24,11 +24,12 @@ buttons.forEach(btn => btn.addEventListener("click", function () {
         operator = inputValue; // Save operator
         screen.textContent = inputValue
     } else if (inputValue === "=" && operator) {
-        screen.textContent = operate(firstInput, secondInput, operator);
+        const result = operate(firstInput, secondInput, operator);
+        screen.textContent = result;
         // Reset for next calculation
         firstInput = result.toString();
         secondInput = "";
-        operator = null;
+        //operator = null;
     } else if (inputValue === "clear") {
         firstInput = "";
         secondInput = "";
