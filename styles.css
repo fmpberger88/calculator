@@ -50,10 +50,6 @@ main {
     border-radius: 5px;
     margin: 10px 0;
     width: calc(100% - 20px);
-}
-
-#screen > div {
-    align-self: flex-end;
     font-size: 2rem;
 }
 
