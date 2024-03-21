@@ -96,3 +96,13 @@ footer {
     justify-content: center;
     align-items: center;
 }
+
+@media screen and (max-width:480px) {
+    footer {
+        margin-top: 100px;
+    }
+
+    footer p {
+        font-size: 1.25rem;
+    }
+}
