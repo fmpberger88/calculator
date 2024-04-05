@@ -20,7 +20,7 @@ function handleDigitInput(value) {
 function handleOperatorInput(value) {
   if (firstInput && secondInput) {
     result = operate(Number(firstInput), Number(secondInput), operator);
-    screen.textContent = result;
+    screen.textContent = result.toFixed(5);
     firstInput = result.toString();
     secondInput = '';
   }
@@ -30,7 +30,7 @@ function handleOperatorInput(value) {
 function handleEqualInput() {
   if (secondInput && operator) {
     result = operate(Number(firstInput), Number(secondInput), operator);
-    screen.textContent = result;
+    screen.textContent = result.toFixed(5);
     firstInput = result.toString();
     secondInput = '';
     operator = null;
